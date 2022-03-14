@@ -1,0 +1,78 @@
+unit uClienteController;
+
+interface
+uses
+  uClienteModel, System.SysUtils, System.Classes;
+
+type TClienteController = class
+     private
+       { private declarations }
+     protected
+       { protected declarations }
+     public
+        constructor Create;
+        destructor Destroy; override;
+        function Pesquisar(pNome:String): Boolean;
+        procedure CarregarCliente(oCliente: TClienteModel; pCodigo: Integer);
+        function Inserir(oCliente: TClienteModel; var sErro: string): Boolean;
+        function Alterar(oCliente: TClienteModel; var sErro: string): Boolean;
+        function Excluir(pCodigo: Integer; var sErro: string): Boolean;
+        function PesquisarEstado(pCidade: Integer): TStringList;
+       { public declarations }
+
+     published
+       { published declarations }
+     end;
+
+implementation
+uses
+  uDmCliente;
+
+{ TClienteController }
+
+function TClienteController.Alterar(oCliente: TClienteModel;
+  var sErro: string): Boolean;
+begin
+  Result := dmCliente.alterar(oCliente,sErro);
+end;
+
+procedure TClienteController.CarregarCliente(oCliente: TClienteModel;
+  pCodigo: Integer);
+begin
+  dmCliente.CarregarCliente(oCliente,pCodigo);
+end;
+
+constructor TClienteController.Create;
+begin
+  //dmCliente := TdmCliente.Create(nil);
+end;
+
+destructor TClienteController.Destroy;
+begin
+  //FreeAndNil(dmCliente);
+  //inherited;
+end;
+
+function TClienteController.Excluir(pCodigo: Integer;
+  var sErro: string): Boolean;
+begin
+   Result := dmCliente.excluir(pCodigo,sErro);
+end;
+
+function TClienteController.Inserir(oCliente: TClienteModel;
+  var sErro: string): Boolean;
+begin
+  Result := dmCliente.inserir(oCliente,sErro);
+end;
+
+function TClienteController.Pesquisar(pNome: String): Boolean;
+begin
+  Result := dmCliente.pesquisar(pNome);
+end;
+
+function TClienteController.PesquisarEstado(pCidade: Integer): TStringList;
+begin
+  Result := dmCliente.PesquisarEstado(pCidade);
+end;
+
+end.

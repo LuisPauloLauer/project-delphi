@@ -1,0 +1,55 @@
+object dmLibGeral: TdmLibGeral
+  OldCreateOrder = False
+  Height = 254
+  Width = 423
+  object sqldsPesquisaEstado: TSQLDataSet
+    CommandText = 
+      'SELECT '#13#10#9'CID.ESTADO,'#13#10'    UF.NOME'#13#10'FROM'#13#10#9'CIDADE CID'#13#10'INNER JOI' +
+      'N'#13#10#9'ESTADO UF ON CID.ESTADO = UF.ID'#13#10'AND CID.ID = :PCIDADE'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'PCIDADE'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 64
+    Top = 40
+    object sqldsPesquisaEstadoESTADO: TStringField
+      FieldName = 'ESTADO'
+      Required = True
+      Size = 2
+    end
+    object sqldsPesquisaEstadoNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 200
+    end
+  end
+  object sqldsPesquisaPais: TSQLDataSet
+    CommandText = 
+      'SELECT '#13#10#9'CID.PAIS,'#13#10'    P.NOME'#13#10'FROM'#13#10#9'CIDADE CID'#13#10'INNER JOIN'#13#10 +
+      #9'PAIS P ON CID.PAIS = P.ID'#13#10'AND CID.ID = :PCIDADE'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'PCIDADE'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 168
+    Top = 40
+    object sqldsPesquisaPaisPAIS: TStringField
+      FieldName = 'PAIS'
+      Required = True
+      Size = 4
+    end
+    object sqldsPesquisaPaisNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 200
+    end
+  end
+end

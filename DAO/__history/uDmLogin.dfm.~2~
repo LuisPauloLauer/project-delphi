@@ -1,0 +1,10 @@
+object dmLogin: TdmLogin
+  OldCreateOrder = False
+  Height = 255
+  Width = 437
+  object sqlverificaAcessoLogin: TSQLDataSet
+    Params = <>
+    Left = 224
+    Top = 80
+  end
+end

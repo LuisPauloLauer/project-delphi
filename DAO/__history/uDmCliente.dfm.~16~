@@ -1,0 +1,200 @@
+object dmCliente: TdmCliente
+  OldCreateOrder = False
+  Height = 234
+  Width = 348
+  object sqldsInserir: TSQLDataSet
+    CommandText = 
+      'INSERT INTO'#13#10#9'CLIENTE_EMPRESA'#13#10#9'(ID,TIPO,NOME,ENDERECO,NUMERO,CO' +
+      'MPLEMENTO,BAIRRO,CEP,CIDADE,ESTADO,PAIS,TELEFONE1,TELEFONE2,EMAI' +
+      'L,CPF,CNPJ)'#13#10'VALUES'#13#10#9'(:PID,:PTIPO,:PNOME,:PENDERECO,:PNUMERO,:P' +
+      'COMPLEMENTO,:PBAIRRO,:PCEP,:PCIDADE,:PESTADO,:PPAIS,:PTELEFONE1,' +
+      ':PTELEFONE2,:PEMAIL,:PCPF,:PCNPJ)'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'PID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PTIPO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PNOME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PENDERECO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PNUMERO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PCOMPLEMENTO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PBAIRRO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCEP'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCIDADE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PESTADO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PPAIS'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PEMAIL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCPF'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCNPJ'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 32
+    Top = 24
+  end
+  object sqldsAlterar: TSQLDataSet
+    CommandText = 
+      'UPDATE'#10#9'CLIENTE_EMPRESA'#10'SET'#9'    '#10'    NOME = :PNOME,'#10'    ENDERECO' +
+      ' = :PENDERECO,'#10'    NUMERO = :PNUMERO,'#10'    COMPLEMENTO = :PCOMPLE' +
+      'MENTO,'#10'    BAIRRO = :PBAIRRO,'#10'    CEP = :PCEP,'#10'    CIDADE = :PCI' +
+      'DADE,'#10'    ESTADO = :PESTADO,'#10'    PAIS = :PPAIS,'#10'    TELEFONE1 = ' +
+      ':PTELEFONE1,'#10'    TELEFONE2 = :PTELEFONE2,'#10'    EMAIL = :PEMAIL,'#10' ' +
+      '   CPF = :PCPF,'#10'    CNPJ = :PCNPJ'#10'WHERE'#10#9'ID = :PID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'PNOME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PENDERECO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PNUMERO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PCOMPLEMENTO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PBAIRRO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCEP'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCIDADE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PESTADO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PPAIS'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PEMAIL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCPF'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCNPJ'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 96
+    Top = 24
+  end
+  object sqldsExcluir: TSQLDataSet
+    CommandText = 'DELETE FROM'#13#10#9'CLIENTE_EMPRESA'#13#10'WHERE'#13#10#9'ID = :PID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'PID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 160
+    Top = 24
+  end
+end

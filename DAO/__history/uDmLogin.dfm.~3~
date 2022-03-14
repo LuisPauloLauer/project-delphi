@@ -1,0 +1,12 @@
+object dmLogin: TdmLogin
+  OldCreateOrder = False
+  Height = 255
+  Width = 437
+  object sqlverificaAcessoLogin: TSQLDataSet
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 224
+    Top = 80
+  end
+end

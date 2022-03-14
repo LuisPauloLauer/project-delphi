@@ -1,0 +1,315 @@
+object dmCliente: TdmCliente
+  OldCreateOrder = False
+  Height = 234
+  Width = 348
+  object sqldsPesquisar: TSQLDataSet
+    CommandText = 
+      'SELECT'#13#10#9'CLI.ID,'#13#10'    CLI.TIPO,'#13#10'    CLI.NOME,'#13#10'    CLI.CIDADE,'#13 +
+      #10'    CLI.ESTADO,'#13#10'    COALESCE(CLI.TELEFONE1,0) AS TELEFONE1,'#13#10' ' +
+      '   COALESCE(CLI.TELEFONE1,0) AS TELEFONE2,'#13#10'    COALESCE(CLI.EMA' +
+      'IL,"@") AS EMAIL,'#13#10'    CPF,'#13#10'    CNPJ'#13#10'FROM'#13#10#9'CLIENTE_EMPRESA CL' +
+      'I'#13#10'INNER JOIN'#13#10#9'PAIS PS ON CLI.PAIS = PS.ID'#13#10'INNER JOIN'#13#10#9'ESTADO' +
+      ' UF ON CLI.ESTADO = UF.ID'#13#10'INNER JOIN'#13#10#9'CIDADE CD ON CLI.CIDADE ' +
+      '= CD.ID'#13#10'AND CLI.NOME LIKE :PNOME'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'PNOME'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 48
+    Top = 32
+    object sqldsPesquisarID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object sqldsPesquisarTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 2
+    end
+    object sqldsPesquisarNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 300
+    end
+    object sqldsPesquisarCIDADE: TIntegerField
+      FieldName = 'CIDADE'
+      Required = True
+    end
+    object sqldsPesquisarESTADO: TStringField
+      FieldName = 'ESTADO'
+      Required = True
+      Size = 2
+    end
+    object sqldsPesquisarTELEFONE1: TLargeintField
+      FieldName = 'TELEFONE1'
+    end
+    object sqldsPesquisarTELEFONE2: TLargeintField
+      FieldName = 'TELEFONE2'
+    end
+    object sqldsPesquisarEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 300
+    end
+    object sqldsPesquisarCPF: TIntegerField
+      FieldName = 'CPF'
+    end
+    object sqldsPesquisarCNPJ: TIntegerField
+      FieldName = 'CNPJ'
+    end
+  end
+  object sqldsInserir: TSQLDataSet
+    CommandText = 
+      'INSERT INTO'#13#10#9'CLIENTE_EMPRESA'#13#10#9'(ID,TIPO,NOME,ENDERECO,NUMERO,CO' +
+      'MPLEMENTO,BAIRRO,CEP,CIDADE,ESTADO,PAIS,TELEFONE1,TELEFONE2,EMAI' +
+      'L,CPF,CNPJ)'#13#10'VALUES'#13#10#9'(:PID,:PTIPO,:PNOME,:PENDERECO,:PNUMERO,:P' +
+      'COMPLEMENTO,:PBAIRRO,:PCEP,:PCIDADE,:PESTADO,:PPAIS,:PTELEFONE1,' +
+      ':PTELEFONE2,:PEMAIL,:PCPF,:PCNPJ)'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'PID'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PTIPO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PNOME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PENDERECO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PNUMERO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PCOMPLEMENTO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PBAIRRO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCEP'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCIDADE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PESTADO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PPAIS'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PEMAIL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCPF'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCNPJ'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 120
+    Top = 32
+  end
+  object sqldsAlterar: TSQLDataSet
+    CommandText = 
+      'UPDATE'#10#9'CLIENTE_EMPRESA'#10'SET'#9'    '#10'    NOME = :PNOME,'#10'    ENDERECO' +
+      ' = :PENDERECO,'#10'    NUMERO = :PNUMERO,'#10'    COMPLEMENTO = :PCOMPLE' +
+      'MENTO,'#10'    BAIRRO = :PBAIRRO,'#10'    CEP = :PCEP,'#10'    CIDADE = :PCI' +
+      'DADE,'#10'    ESTADO = :PESTADO,'#10'    PAIS = :PPAIS,'#10'    TELEFONE1 = ' +
+      ':PTELEFONE1,'#10'    TELEFONE2 = :PTELEFONE2,'#10'    EMAIL = :PEMAIL,'#10' ' +
+      '   CPF = :PCPF,'#10'    CNPJ = :PCNPJ'#10'WHERE'#10#9'ID = :PID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'PNOME'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PENDERECO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PNUMERO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PCOMPLEMENTO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PBAIRRO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCEP'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCIDADE'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PESTADO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PPAIS'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PTELEFONE2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'PEMAIL'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCPF'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PCNPJ'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 184
+    Top = 32
+  end
+  object sqldsExcluir: TSQLDataSet
+    CommandText = 'DELETE FROM'#10#9'CLIENTE_EMPRESA'#10'WHERE'#10#9'ID = :PID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'PID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmConexao.sqlConexao
+    Left = 248
+    Top = 32
+  end
+  object dspPesquisar: TDataSetProvider
+    DataSet = sqldsPesquisar
+    Left = 48
+    Top = 80
+  end
+  object cdsPesquisar: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'PNOME'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspPesquisar'
+    Left = 48
+    Top = 128
+    object cdsPesquisarID: TIntegerField
+      FieldName = 'ID'
+      Required = True
+    end
+    object cdsPesquisarTIPO: TStringField
+      FieldName = 'TIPO'
+      Required = True
+      Size = 2
+    end
+    object cdsPesquisarNOME: TStringField
+      FieldName = 'NOME'
+      Required = True
+      Size = 300
+    end
+    object cdsPesquisarCIDADE: TIntegerField
+      FieldName = 'CIDADE'
+      Required = True
+    end
+    object cdsPesquisarESTADO: TStringField
+      FieldName = 'ESTADO'
+      Required = True
+      Size = 2
+    end
+    object cdsPesquisarTELEFONE1: TLargeintField
+      FieldName = 'TELEFONE1'
+    end
+    object cdsPesquisarTELEFONE2: TLargeintField
+      FieldName = 'TELEFONE2'
+    end
+    object cdsPesquisarEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 300
+    end
+    object cdsPesquisarCPF: TIntegerField
+      FieldName = 'CPF'
+    end
+    object cdsPesquisarCNPJ: TIntegerField
+      FieldName = 'CNPJ'
+    end
+  end
+end

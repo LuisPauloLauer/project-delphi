@@ -1,0 +1,97 @@
+unit uDmLibGeral;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Data.DB, Datasnap.DBClient,
+  Datasnap.Provider, Data.SqlExpr;
+
+type
+  TdmLibGeral = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    function PesquisaDadosTabela(pPKTabela: string; pCodigoTabela: string; pTabela: string; pColunas: TStrings): TStringList;
+    { Public declarations }
+  end;
+
+var
+  dmLibGeral: TdmLibGeral;
+
+implementation
+
+uses
+  uDmConexao;
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TdmLibGeral }
+
+function TdmLibGeral.PesquisaDadosTabela(pPKTabela: string; pCodigoTabela: string; pTabela: string;
+  pColunas: TStrings): TStringList;
+var
+  sqlPesqTabela : TSQLDataSet;
+  sColunas : TStringList;
+  sColunasSql : TStringList;
+  sColunasResultado : TStringList;
+  nI : Integer;
+begin
+  sqlPesqTabela := TSQLDataSet.Create(nil);
+  sColunas := TStringList.Create;
+  sColunas.Clear;
+  sColunas := pColunas;
+  sColunasSql := TStringList.Create;
+  sColunasSql.Clear;
+  sColunasResultado := TStringList.Create;
+  sColunasResultado.Clear;
+
+  try
+    for nI := 0 to sColunas.Count-1 do
+    begin
+      if nI <> sColunas.Count-1 then
+        sColunasSql.Add(sColunas[nI]+',')
+      else
+        sColunasSql.Add(sColunas[nI]);
+    end;
+
+    with sqlPesqTabela do
+    begin
+      SQLConnection := dmConexao.sqlConexao;
+      CommandText := 'SELECT '+
+                        sColunasSql.Text+
+                     'FROM '+
+                        pTabela+
+                      'WHERE '+
+                        pPKTabela+' = '+pCodigoTabela;
+      Close;
+      Open;
+
+      if (not sqlPesqTabela.IsEmpty) then
+      begin
+        for nI := 0 to sqlPesqTabela.Fields.Count-1 do
+        begin
+          Case sqlPesqTabela.Fields[nI].DataType of
+            ftString: sColunasResultado.Add(sqlPesqTabela.Fields[nI].AsString);
+            ftInteger: sColunasResultado.Add(sqlPesqTabela.Fields[nI].AsInteger);
+          End;
+        end;
+
+        Result := sColunasResultado;
+      end
+      else
+      begin
+        Result := sColunasResultado;
+      end
+
+    end;
+  finally
+    FreeAndNil(sqlPesqTabela);
+    FreeAndNil(sColunas);
+    FreeAndNil(sColunasSql);
+    FreeAndNil(sColunasResultado);
+  end;
+end;
+
+end.

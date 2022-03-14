@@ -1,0 +1,44 @@
+unit uLibGeralController;
+
+interface
+uses
+  System.SysUtils, System.Classes;
+
+type TLibGeralController = class
+  private
+    { private declarations }
+  protected
+    { protected declarations }
+  public
+    function PesquisaDadosTabela(pColunas: TStringList; pTabela: string; pPKTabela: string; pCodigoTabela: string): TStringList;
+    function PesquisarPais(pCidade: Integer): TStringList;
+    function PesquisarEstado(pCidade: Integer): TStringList;
+    { public declarations }
+  published
+    { published declarations }
+  end;
+
+implementation
+
+uses
+  uDmLibGeral;
+
+{ TLibGeralController }
+
+function TLibGeralController.PesquisaDadosTabela(pColunas: TStringList;pTabela: string;
+  pPKTabela: string; pCodigoTabela: string): TStringList;
+begin
+  Result := dmLibGeral.PesquisaDadosTabela(pColunas,pTabela,pPKTabela,pCodigoTabela);
+end;
+
+function TLibGeralController.PesquisarEstado(pCidade: Integer): TStringList;
+begin
+  Result := dmLibGeral.PesquisarEstado(pCidade);
+end;
+
+function TLibGeralController.PesquisarPais(pCidade: Integer): TStringList;
+begin
+  Result := dmLibGeral.PesquisarPais(pCidade);
+end;
+
+end.

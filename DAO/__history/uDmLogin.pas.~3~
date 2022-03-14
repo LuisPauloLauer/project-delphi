@@ -1,0 +1,50 @@
+unit uDmLogin;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Data.DB, Data.SqlExpr;
+
+type
+  TdmLogin = class(TDataModule)
+    sqlverificaAcessoLogin: TSQLDataSet;
+  private
+    { Private declarations }
+  public
+    function verificaAcessoLogin(pUsuario, pSenha:string):Boolean;
+    { Public declarations }
+  end;
+
+var
+  dmLogin: TdmLogin;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses uDmConexao;
+
+{$R *.dfm}
+
+{ TdmLogin }
+
+function TdmLogin.verificaAcessoLogin(pUsuario, pSenha : string): Boolean;
+begin
+  with  sqlverificaAcessoLogin do
+  begin
+    CommandText := 'SELECT NOME FROM USUARIO WHERE ID = '+QuotedStr(pUsuario)+' AND SENHA = '+QuotedStr(pSenha)+'';
+    Close;
+    Open;
+    if (sqlverificaAcessoLogin.IsEmpty = True) then
+    begin
+      Result := False;
+    end
+    else
+    begin
+      Result := True;
+    end;
+
+  end;
+end;
+
+end.

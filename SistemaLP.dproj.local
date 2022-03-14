@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/03/09 23:43:07.000.321,=C:\Users\Luis\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 02:49:32.000.253,=C:\Users\Luis\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 03:02:49.000.625,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmLogin.dfm=C:\Users\Luis\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019/03/11 03:02:49.000.625,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmLogin.pas=C:\Users\Luis\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 03:04:51.000.631,C:\Users\Luis\Desktop\Sistema_Delphi\SistemaLP.dproj=C:\Users\Luis\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2019/03/11 03:05:45.000.011,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 03:08:01.000.843,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmMenu.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2019/03/11 03:08:01.000.843,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmMenu.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 03:16:21.000.726,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 03:17:21.000.263,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmCliente.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2019/03/11 03:17:21.000.263,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmCliente.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 05:32:48.000.827,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 05:33:33.000.476,C:\Users\Luis\Desktop\Sistema_Delphi\MODEL\uCliente.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:08:49.000.367,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:09:40.000.648,C:\Users\Luis\Desktop\Sistema_Delphi\MODEL\uClienteModel.pas=C:\Users\Luis\Desktop\Sistema_Delphi\MODEL\uCliente.pas</Transaction>
+    <Transaction>2019/03/11 06:10:18.000.382,C:\Users\Luis\Desktop\Sistema_Delphi\CONTROLLER\uClienteController.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:50:56.000.734,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:54:33.000.302,C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmConexao.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2019/03/11 06:54:33.000.302,C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmConexao.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:58:13.000.796,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:59:18.000.951,C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmCliente.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/11 06:59:18.000.951,C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmCliente.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2019/03/13 02:45:03.000.710,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/13 02:45:53.000.813,C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas=C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmLogin.pas</Transaction>
+    <Transaction>2019/03/13 02:45:53.000.813,C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmLogin.dfm</Transaction>
+    <Transaction>2019/03/19 06:19:09.000.125,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 06:20:34.000.540,C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmBase.dfm</Transaction>
+    <Transaction>2019/03/19 06:20:34.000.540,C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmBase.pas</Transaction>
+    <Transaction>2019/03/19 07:36:07.000.278,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmCliente.pas=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmClienteOld.pas</Transaction>
+    <Transaction>2019/03/19 07:36:07.000.278,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmCliente.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmClienteOld.dfm</Transaction>
+    <Transaction>2019/03/19 07:38:25.000.920,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmBase.pas=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Base\uFrmBase.pas</Transaction>
+    <Transaction>2019/03/19 07:38:25.000.920,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmBase.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Base\uFrmBase.dfm</Transaction>
+    <Transaction>2019/03/19 07:39:43.000.043,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmClienteOld.pas=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Cadastro\uFrmClienteOld.pas</Transaction>
+    <Transaction>2019/03/19 07:39:43.000.043,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\uFrmClienteOld.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Cadastro\uFrmClienteOld.dfm</Transaction>
+    <Transaction>2019/03/19 11:21:47.000.194,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 11:41:15.000.955,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 11:43:27.000.815,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 12:10:18.000.275,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 12:28:13.000.882,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 12:30:05.000.135,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Cadastro\uFrmCliente.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/19 12:30:05.000.135,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Cadastro\uFrmCliente.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2019/03/21 09:59:09.000.984,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/21 10:02:27.000.721,C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmLibGeral.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/21 10:02:27.000.721,C:\Users\Luis\Desktop\Sistema_Delphi\DAO\uDmLibGeral.dfm=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.dfm</Transaction>
+    <Transaction>2019/03/21 11:20:48.000.833,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/21 11:22:23.000.434,C:\Users\Luis\Desktop\Sistema_Delphi\CONTROLLER\uLibGeralController.pas=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/28 16:39:42.000.497,C:\Users\Luis\Desktop\Sistema_Delphi\VIEW\Cadastro\uFrmClienteOld.pas=</Transaction>
+    <Transaction>2019/03/28 18:20:41.000.957,=C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas</Transaction>
+    <Transaction>2019/03/28 18:27:06.000.733,C:\Users\Luis\Desktop\Sistema_Delphi\Unit1.pas=C:\Users\Luis\Desktop\Sistema_Delphi\MODEL\uLibGeralModel.pas</Transaction>
+    <Transaction>2019/04/25 15:35:04.000.660,=C:\Users\Luis\Desktop\Sistema_Delphi\Componentes\uNovosComponentes.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,53 @@
+unit uFrmLogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmLogin = class(TForm)
+    pnlBanner: TPanel;
+    imgBanner: TImage;
+    edUsuario: TEdit;
+    edSenha: TEdit;
+    lblUsuario: TLabel;
+    lblSenha: TLabel;
+    btnLogin: TButton;
+    procedure btnLoginClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLogin: TfrmLogin;
+
+implementation
+
+{$R *.dfm}
+
+uses uDmLogin, uFrmMenu;
+
+procedure TfrmLogin.btnLoginClick(Sender: TObject);
+var
+  oLogin : TdmLogin;
+  oMenu : TfrmMenu;
+begin
+  try
+    oLogin := TdmLogin.Create(nil);
+    oMenu := TfrmMenu.Create(nil);
+
+    if oLogin.verificaAcessoLogin(edUsuario.Text,edSenha.Text) then
+      oMenu.ShowModal
+    else
+       ShowMessage('Não Tem acesso');
+  finally
+    FreeAndNil(oLogin);
+    FreeAndNil(oMenu);
+  end;
+end;
+
+end.

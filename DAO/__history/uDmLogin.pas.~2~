@@ -1,0 +1,37 @@
+unit uDmLogin;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TdmLogin = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    function verificaAcessoLogin(pUsuario:string;pSenha:string):Boolean;
+    { Public declarations }
+  end;
+
+var
+  dmLogin: TdmLogin;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses uDmConexao;
+
+{$R *.dfm}
+
+{ TdmLogin }
+
+function TdmLogin.verificaAcessoLogin(pUsuario, pSenha: string): Boolean;
+var
+  sqlverificaAcessoLogin : TSQLDataSet;
+begin
+
+end;
+
+end.

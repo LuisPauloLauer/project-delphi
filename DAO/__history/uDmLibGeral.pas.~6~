@@ -1,0 +1,190 @@
+unit uDmLibGeral;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Data.DB, Datasnap.DBClient,
+  Datasnap.Provider, Data.SqlExpr;
+
+type
+  TdmLibGeral = class(TDataModule)
+    sqldsPesquisaEstado: TSQLDataSet;
+    sqldsPesquisaEstadoESTADO: TStringField;
+    sqldsPesquisaEstadoNOME: TStringField;
+    sqldsPesquisaPais: TSQLDataSet;
+    sqldsPesquisaPaisPAIS: TStringField;
+    sqldsPesquisaPaisNOME: TStringField;
+    sqldsPesquisaCidade: TSQLDataSet;
+    sqldsPesquisaCidadeCIDADE: TIntegerField;
+    sqldsPesquisaCidadeNOME: TStringField;
+  private
+    { Private declarations }
+  public
+    function PesquisaDadosTabela(pColunas: TStringList; pTabela: string; pPKTabela: string; pCodigoTabela: string): TStringList;
+    function PesquisarPais(pCidade: Integer): TStringList;
+    function PesquisarEstado(pCidade: Integer): TStringList;
+    function PesquisarCidade(pCidade: Integer): TStringList;
+    { Public declarations }
+  end;
+
+var
+  dmLibGeral: TdmLibGeral;
+
+implementation
+
+uses
+  uDmConexao;
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TdmLibGeral }
+
+function TdmLibGeral.PesquisaDadosTabela(pColunas: TStringList; pTabela: string;
+  pPKTabela: string; pCodigoTabela: string): TStringList;
+var
+  sqlPesqTabela : TSQLDataSet;
+  sColunas : TStringList;
+  sColunasSql : TStringList;
+  sColunasResultado : TStringList;
+  nI : Integer;
+begin
+  sqlPesqTabela := TSQLDataSet.Create(nil);
+  sColunas := TStringList.Create;
+  sColunas.Clear;
+  sColunas := pColunas;
+  sColunasSql := TStringList.Create;
+  sColunasSql.Clear;
+  sColunasResultado := TStringList.Create;
+  sColunasResultado.Clear;
+
+  try
+    for nI := 0 to sColunas.Count-1 do
+    begin
+      if nI <> sColunas.Count-1 then
+        sColunasSql.Add(sColunas[nI]+',')
+      else
+        sColunasSql.Add(sColunas[nI]);
+    end;
+
+    with sqlPesqTabela do
+    begin
+      SQLConnection := dmConexao.sqlConexao;
+      CommandText := 'SELECT '+
+                        sColunasSql.Text+
+                     'FROM '+
+                        pTabela+
+                      'WHERE '+
+                        pPKTabela+' = '+pCodigoTabela;
+      Close;
+      Open;
+
+      if (not sqlPesqTabela.IsEmpty) then
+      begin
+        for nI := 0 to sqlPesqTabela.Fields.Count-1 do
+        begin
+          Case sqlPesqTabela.Fields[nI].DataType of
+            ftString: sColunasResultado.Add(sqlPesqTabela.Fields[nI].AsString);
+            ftInteger: sColunasResultado.Add(IntToStr(sqlPesqTabela.Fields[nI].AsInteger));
+          End;
+        end;
+
+        Result := sColunasResultado;
+      end
+      else
+      begin
+        Result := sColunasResultado;
+      end
+
+    end;
+  finally
+    FreeAndNil(sqlPesqTabela);
+    FreeAndNil(sColunas);
+    FreeAndNil(sColunasSql);
+    FreeAndNil(sColunasResultado);
+  end;
+end;
+
+function TdmLibGeral.PesquisarCidade(pCidade: Integer): TStringList;
+var
+  sCidade : TStringList;
+begin
+  with sqldsPesquisaCidade do
+  begin
+    sCidade := TStringList.Create;
+    sCidade.Clear;
+    Close;
+    ParamByName('PCIDADE').AsInteger := pCidade;
+    Open;
+    First;
+
+    if (not sqldsPesquisaCidade.IsEmpty) then
+    begin
+      sCidade.Add(IntToStr(sqldsPesquisaCidade.FieldByName('CIDADE').AsInteger));
+      sCidade.Add(sqldsPesquisaCidade.FieldByName('NOME').AsString);
+      Result := sCidade;
+    end
+    else
+    begin
+      Result := sCidade;
+    end
+
+  end;
+end;
+
+function TdmLibGeral.PesquisarEstado(pCidade: Integer): TStringList;
+var
+  sEstado : TStringList;
+begin
+  with sqldsPesquisaEstado do
+  begin
+    sEstado := TStringList.Create;
+    sEstado.Clear;
+    Close;
+    ParamByName('PCIDADE').AsInteger := pCidade;
+    Open;
+    First;
+
+    if (not sqldsPesquisaEstado.IsEmpty) then
+    begin
+      sEstado.Add(sqldsPesquisaEstado.FieldByName('ESTADO').AsString);
+      sEstado.Add(sqldsPesquisaEstado.FieldByName('NOME').AsString);
+      Result := sEstado;
+    end
+    else
+    begin
+      Result := sEstado;
+    end
+
+  end;
+end;
+
+function TdmLibGeral.PesquisarPais(pCidade: Integer): TStringList;
+var
+  sPais : TStringList;
+begin
+  with sqldsPesquisaPais do
+  begin
+    sPais := TStringList.Create;
+    sPais.Clear;
+    Close;
+    ParamByName('PCIDADE').AsInteger := pCidade;
+    Open;
+    First;
+
+    if (not sqldsPesquisaPais.IsEmpty) then
+    begin
+      sPais.Add(sqldsPesquisaPais.FieldByName('PAIS').AsString);
+      sPais.Add(sqldsPesquisaPais.FieldByName('NOME').AsString);
+      Result := sPais;
+    end
+    else
+    begin
+      Result := sPais;
+    end
+
+  end;
+end;
+
+end.
